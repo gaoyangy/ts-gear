@@ -1,6 +1,6 @@
 {
-  "name": "ts-gear",
-  "version": "4.11.7",
+  "name": "do-ts-gear",
+  "version": "5.0.0",
   "description": "swagger to typescript with mock data",
   "main": "lib/index.js",
   "bin": {
@@ -13,7 +13,7 @@
     "build": "cross-env rimraf lib && cross-env tsc -p tsconfig.build.json && chmod +x lib/main.js",
     "release": "standard-version",
     "prepublishOnly": "yarn run-s build test release",
-    "publish-rc": "yarn test && yarn build && yarn standard-version -- prerelease rc && npm publish --ignore-scripts"
+    "publish-rc": "yarn build && yarn standard-version -- prerelease rc && npm publish --ignore-scripts"
   },
   "types": "lib/index.d.ts",
   "repository": {
@@ -107,7 +107,7 @@
     }
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "http://61.172.246.55:8088/nexus/content/repositories/npm-internal/"
   },
   "author": "superwf",
   "license": "MIT"
