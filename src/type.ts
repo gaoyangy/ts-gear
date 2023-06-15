@@ -19,7 +19,7 @@ export type TranslationEngine = 'baidu' | 'google'
 
 export const httpMethods = tuple('get', 'put', 'post', 'delete', 'options', 'head', 'patch')
 
-export type HttpMethod = typeof httpMethods[number]
+export type HttpMethod = (typeof httpMethods)[number]
 
 export type RequestParameterPosition = BaseParameter['in']
 
@@ -229,7 +229,7 @@ export interface Project {
    * */
   withBasePath?: boolean
   /**
-   * define baseUrl 自定义想要的baseUrl
+   * define baseUrl 自定义想要的baseUrl 权重高于 withBasePath
    */
   defineBaseUrl?: string
 
@@ -315,7 +315,9 @@ export interface Project {
    * generate request function name method
    * 生成请求函数名的自定义方法
    * */
-  generateRequestFunctionName?: (arg: GenerateRequestFunctionNameParameter) => string
+  generateRequestFunctionName?: (
+    arg: GenerateRequestFunctionNameParameter,
+  ) => string
 
   /**
    * if you need, use this option to generate your function all by your self

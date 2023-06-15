@@ -39,7 +39,16 @@ export const generateRequestContent = (spec: Spec, project: Project) => {
     const responseType = generateResponseType(requestFunctionName, request.responses, project)
     requestTypeScriptContent.push(responseType.responseTypeContent)
     requestTypeScriptContent.push(responseType.successTypeContent)
-    const basePath = project.withBasePath ? spec.basePath : null
+    let basePath = project.withBasePath ? spec.basePath : null
+    let baseUrl = ''
+    if (defineBaseUrl) {
+      baseUrl = `basePath: '${defineBaseUrl}'`
+      basePath = defineBaseUrl
+    } else if (withBasePath && spec.basePath && !defineBaseUrl) {
+      baseUrl = `basePath: '${spec.basePath}'`
+    } else {
+      baseUrl = ''
+    }
     const urlPath = join(basePath || '/', transformSwaggerPathToRouterPath(String(request.pathname)))
     const source = sow()
     const requestFunctionSource = sow()
@@ -54,18 +63,11 @@ export const generateRequestContent = (spec: Spec, project: Project) => {
         simpleOption = `${position}: option`
       }
     }
-    let baseUrl = ``
-    if (withBasePath && defineBaseUrl) {
-      baseUrl = `basePath: '${defineBaseUrl}'`
-    } else if (withBasePath && spec.basePath && !defineBaseUrl) {
-      baseUrl = `basePath: '${spec.basePath}'`
-    } else {
-      baseUrl = ''
-    }
     const requesterStatment = `return requester(request.url, {${[
       withHost && spec.host ? `host: '${spec.host}'` : '',
       baseUrl,
       'method: request.method',
+      'header: optional?.header',
       simpleOption || (parameterTypeName || requestOptionUnionType ? '...option' : ''),
     ]
       .filter(Boolean)
@@ -93,6 +95,11 @@ export const generateRequestContent = (spec: Spec, project: Project) => {
         type: requestOptionUnionType,
       })
     }
+    functionData.parameters.push({
+      hasQuestionToken: true,
+      name: 'optional',
+      type: 'any',
+    })
     requestFunctionSource.addFunction(functionData)
     const sourceContent = `/* #__PURE__ */ (() => {
        const method = '${httpMethod}'
