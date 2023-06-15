@@ -1,6 +1,6 @@
 {
   "name": "@dojs/ts-gear",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "description": "swagger to typescript with mock data",
   "main": "lib/index.js",
   "bin": {
@@ -18,7 +18,7 @@
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/superwf/ts-gear.git"
+    "url": "https://github.com/gaoyangy/ts-gear.git"
   },
   "peerDependencies": {
     "typescript": ">=4"
