@@ -1,6 +1,6 @@
 {
   "name": "@dojs/ts-gear",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "swagger to typescript with mock data",
   "main": "lib/index.js",
   "bin": {
@@ -12,7 +12,7 @@
     "coverage": "cross-env NODE_ENV=test jest --coverage | ts-node script/coverageReportToMarkdown.ts && jest-coverage-badges output ./badge && open-cli coverage/lcov-report/index.html -- google-chrome",
     "build": "cross-env rimraf lib && cross-env tsc -p tsconfig.build.json && chmod +x lib/main.js",
     "release": "standard-version",
-    "prepublishOnly": "yarn run-s build test release",
+    "prepublishOnly": "yarn run-s build release",
     "publish-rc": "yarn build && yarn standard-version -- prerelease rc && npm publish --ignore-scripts"
   },
   "types": "lib/index.d.ts",
