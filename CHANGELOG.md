@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/gaoyangy/ts-gear/compare/v5.0.11...v5.1.0) (2023-06-15)
+
+
+### Features
+
+* 支持自定义baseurl ([9556507](https://github.com/gaoyangy/ts-gear/commit/9556507528b5139eec7b7a8b1128bc7d95fa5cc4))
+
 ### [5.0.11](https://github.com/gaoyangy/ts-gear/compare/v5.0.10...v5.0.11) (2023-06-15)
 
 ### [5.0.10](https://github.com/gaoyangy/ts-gear/compare/v5.0.9...v5.0.10) (2023-06-15)
