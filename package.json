@@ -1,6 +1,6 @@
 {
   "name": "@dojs/ts-gear",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "description": "swagger to typescript with mock data",
   "main": "lib/index.js",
   "bin": {
@@ -13,7 +13,7 @@
     "build": "cross-env rimraf lib && cross-env tsc -p tsconfig.build.json && chmod +x lib/main.js",
     "release": "standard-version",
     "prepublishOnly": "yarn run-s build release",
-    "publish-rc": "yarn build && yarn standard-version -- prerelease rc && npm publish --ignore-scripts"
+    "publish-rc": "npm publish"
   },
   "types": "lib/index.d.ts",
   "repository": {
