@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.5](https://github.com/gaoyangy/ts-gear/compare/v5.0.4...v5.0.5) (2023-06-15)
+
 ### [5.0.4](https://github.com/gaoyangy/ts-gear/compare/v5.0.3...v5.0.4) (2023-06-15)
 
 ### [5.0.3](https://github.com/superwf/ts-gear/compare/v5.0.2...v5.0.3) (2023-06-15)
