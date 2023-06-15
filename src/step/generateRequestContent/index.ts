@@ -13,7 +13,7 @@ import { generateRequestOptionType } from './generateRequestOptionType'
 
 /** from swagger spec paths assemble request functions */
 export const generateRequestContent = (spec: Spec, project: Project) => {
-  const { apiFilter, withBasePath, withHost, simplifyRequestOption, requestOptionUnionType } = project
+  const { apiFilter, withBasePath, withHost, simplifyRequestOption, requestOptionUnionType, defineBaseUrl } = project
   const { requestMap } = getGlobal(project)
   const { EOL } = config
 
@@ -54,9 +54,17 @@ export const generateRequestContent = (spec: Spec, project: Project) => {
         simpleOption = `${position}: option`
       }
     }
+    let baseUrl = ``
+    if (withBasePath && defineBaseUrl) {
+      baseUrl = `basePath: '${defineBaseUrl}'`
+    } else if (withBasePath && spec.basePath && !defineBaseUrl) {
+      baseUrl = `basePath: '${spec.basePath}'`
+    } else {
+      baseUrl = ''
+    }
     const requesterStatment = `return requester(request.url, {${[
       withHost && spec.host ? `host: '${spec.host}'` : '',
-      withBasePath && spec.basePath ? `basePath: '${spec.basePath}'` : '',
+      baseUrl,
       'method: request.method',
       simpleOption || (parameterTypeName || requestOptionUnionType ? '...option' : ''),
     ]

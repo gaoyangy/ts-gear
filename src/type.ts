@@ -228,6 +228,10 @@ export interface Project {
    * 每个请求函数中的请求url是否包括openapi定义的basePath
    * */
   withBasePath?: boolean
+  /**
+   * define baseUrl 自定义想要的baseUrl
+   */
+  defineBaseUrl?: string
 
   /**
    * @default true
