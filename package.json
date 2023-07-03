@@ -1,6 +1,6 @@
 {
   "name": "@dojs/ts-gear",
-  "version": "5.1.3",
+  "version": "5.1.4",
   "description": "swagger to typescript with mock data",
   "main": "lib/index.js",
   "bin": {
