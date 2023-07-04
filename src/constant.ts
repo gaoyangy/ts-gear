@@ -12,6 +12,7 @@ export const targetFileNames = {
 }
 
 export const config: {
+  exportMode?: string
   EOL: Required<Project['EOL']>
 } = {
   EOL: '\n',

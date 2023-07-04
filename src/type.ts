@@ -22,7 +22,7 @@ export const httpMethods = tuple('get', 'put', 'post', 'delete', 'options', 'hea
 export type HttpMethod = (typeof httpMethods)[number]
 
 export type RequestParameterPosition = BaseParameter['in']
-
+export type exportModeType = 'object' | 'function'
 /** request parameter option */
 export type RequestParameter = {
   method?: string
@@ -232,7 +232,10 @@ export interface Project {
    * define baseUrl 自定义想要的baseUrl 权重高于 withBasePath
    */
   defineBaseUrl?: string
-
+  /**
+   * 导出函数 还是 对象
+   */
+  exportMode?: exportModeType
   /**
    * @default true
    * ts-gear try to keep the generic type for all definition
@@ -315,9 +318,7 @@ export interface Project {
    * generate request function name method
    * 生成请求函数名的自定义方法
    * */
-  generateRequestFunctionName?: (
-    arg: GenerateRequestFunctionNameParameter,
-  ) => string
+  generateRequestFunctionName?: (arg: GenerateRequestFunctionNameParameter) => string
 
   /**
    * if you need, use this option to generate your function all by your self

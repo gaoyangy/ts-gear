@@ -1,3 +1,11 @@
+/*
+ * @Description: alien
+ * @Author: alien
+ * @FilePath: /ts-gear/src/step/prepareWriteContent.ts
+ * @Date: 2023-06-15 10:34:32
+ * @LastEditors: alien
+ * @LastEditTime: 2023-07-04 15:42:14
+ */
 import { join } from 'path'
 import { targetFileNames, config } from '../constant'
 import { requester } from '../content/requester'
@@ -62,7 +70,7 @@ export const prepareWriteContent = (project: Project, tsGearConfigPath: string):
   }
 
   const indexFile = join(dest, targetFileNames.index)
-  const indexFileContent = [warningComment(EOL as string), projectIndex()].join(EOL)
+  const indexFileContent = [warningComment(EOL as string), projectIndex(project.exportMode)].join(EOL)
 
   return {
     requestFile,
