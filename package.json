@@ -101,11 +101,6 @@
     "interface",
     "structure"
   ],
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "publishConfig": {
     "registry": "http://61.172.246.55:8088/nexus/content/repositories/npm-internal/"
   },
